@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Maven SCM handler for Team/CVS
+Bundle-SymbolicName: org.maven.ide.eclipse.cvs;singleton:=true
+Bundle-Version: 0.9.5.qualifier
+Bundle-Activator: org.maven.ide.eclipse.scm.cvs.MavenTeamCvsPlugin
+Bundle-Vendor: Sonatype, Inc.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.team.core,
+ org.maven.ide.eclipse,
+ org.maven.ide.components.maven_embedder,
+ org.eclipse.team.cvs.core,
+ org.eclipse.team.cvs.ui
+Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
