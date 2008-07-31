@@ -2,7 +2,7 @@
 <feature
       id="org.maven.ide.eclipse.cvs.feature"
       label="Maven SCM handler for Team/CVS (Optional)"
-      version="0.9.5.qualifier"
+      version="0.9.6.qualifier"
       provider-name="Sonatype, Inc."
       plugin="org.maven.ide.eclipse">
 
@@ -30,8 +30,10 @@ http://www.eclipse.org/legal/epl-v10.html
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.team.core"/>
-      <import plugin="org.eclipse.team.ui"/>
+      <import plugin="org.eclipse.team.cvs.core"/>
+      <import plugin="org.eclipse.team.cvs.ui"/>
       <import plugin="org.maven.ide.eclipse" version="0.9.5" match="greaterOrEqual"/>
+      <import plugin="org.maven.ide.components.maven_embedder"/>
    </requires>
 
    <plugin
