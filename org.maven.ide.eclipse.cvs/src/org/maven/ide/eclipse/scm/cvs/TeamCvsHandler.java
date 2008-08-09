@@ -131,7 +131,10 @@ public class TeamCvsHandler extends ScmHandler {
 
   private CVSTag getCvsTag(MavenProjectScmInfo info) {
     String revision = info.getRevision();
-    if(revision!=null && revision.trim().length()>0) {
+    if("HEAD".equals(revision)) {
+      return CVSTag.DEFAULT;
+    } else if(revision!=null && revision.trim().length()>0) {
+      // TODO improve handling of the tag types, including CVSTag.BRANCH and CVSTag.DATE 
       return new CVSTag(revision, CVSTag.VERSION);
     }
     return CVSTag.DEFAULT;
