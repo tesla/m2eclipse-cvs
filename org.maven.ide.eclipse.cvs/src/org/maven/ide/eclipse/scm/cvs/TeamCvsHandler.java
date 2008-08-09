@@ -43,7 +43,7 @@ import org.maven.ide.eclipse.scm.ScmHandler;
  */
 public class TeamCvsHandler extends ScmHandler {
 
-  public static final String SCM_CVS_PREFIX = "scm:cvs:";
+  public static final String SCM_CVS_PREFIX = "scm:cvs";
 
   public InputStream open(String url, String revision) throws CoreException {
     throw new RuntimeException("Not implemented");
@@ -70,7 +70,7 @@ public class TeamCvsHandler extends ScmHandler {
     int n2 = folderUrl.lastIndexOf('|');
     int n = Math.max(n1, n2); // module name
     
-    String location = ":" + folderUrl.substring(SCM_CVS_PREFIX.length(), n);
+    String location = folderUrl.substring(SCM_CVS_PREFIX.length(), n);
     final String moduleName = folderUrl.substring(n + 1);
     
     ICVSRepositoryLocation repository = CVSRepositoryLocation.fromString(location, false);

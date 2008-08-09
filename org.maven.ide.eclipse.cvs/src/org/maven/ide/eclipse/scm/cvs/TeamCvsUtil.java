@@ -8,11 +8,16 @@
 
 package org.maven.ide.eclipse.scm.cvs;
 
+import org.eclipse.team.internal.ccvs.core.CVSException;
+import org.eclipse.team.internal.ccvs.core.CVSTag;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteResource;
 import org.eclipse.team.internal.ccvs.core.ICVSRepositoryLocation;
-import org.eclipse.team.internal.ccvs.core.IConnectionMethod;
+import org.eclipse.team.internal.ccvs.core.syncinfo.FolderSyncInfo;
 
+import org.maven.ide.eclipse.MavenPlugin;
+import org.maven.ide.eclipse.core.MavenLogger;
+import org.maven.ide.eclipse.scm.ScmTag;
 import org.maven.ide.eclipse.scm.ScmUrl;
 
 /**
@@ -29,21 +34,54 @@ public class TeamCvsUtil {
       scmParentUrl = getUrl(parent);
     }
     
-    return new ScmUrl(scmUrl, scmParentUrl);
+    ScmTag scmTag = null;
+    try {
+      FolderSyncInfo syncInfo = remoteFolder.getFolderSyncInfo();
+      if(syncInfo!=null) {
+        CVSTag tag = syncInfo.getTag();
+        if(tag!=null) {
+          scmTag = new ScmTag(tag.getName(), getScmTagType(tag));
+        }
+      }
+    } catch(CVSException ex) {
+      String msg = "Can't retrieve CVS tag";
+      MavenLogger.log(msg, ex);
+      MavenPlugin.getDefault().getConsole().logError(msg + "; " + ex.getMessage());
+    }
+    
+    return new ScmUrl(scmUrl, scmParentUrl, scmTag);
+  }
+
+  private static ScmTag.Type getScmTagType(CVSTag tag) {
+    switch(tag.getType()) {
+      case CVSTag.HEAD:
+        return ScmTag.Type.HEAD;
+      case CVSTag.BRANCH:
+        return ScmTag.Type.BRANCH;
+      case CVSTag.VERSION:
+        return ScmTag.Type.TAG;
+      case CVSTag.DATE:
+        return ScmTag.Type.DATE;
+    }
+    return null;
   }
   
   static String getUrl(ICVSRemoteResource resource) {
     ICVSRepositoryLocation repository = resource.getRepository();
-    IConnectionMethod method = repository.getMethod();
-    String host = repository.getHost();
-    int port = repository.getPort();
-    String root = repository.getRootDirectory();
-    String userName = repository.getUsername();
+//    IConnectionMethod method = repository.getMethod();
+//    String host = repository.getHost();
+//    int port = repository.getPort();
+//    String root = repository.getRootDirectory();
+//    String userName = repository.getUsername();
+    
+    String location = repository.getLocation(true);
 
     String resourcePath = resource.getRepositoryRelativePath();
-    return TeamCvsHandler.SCM_CVS_PREFIX + method.getName() //
-        + ":" + userName + ":@" + host + ":" + (port == 0 ? "" : port) //
-        + root + (resourcePath.length()==0 ? "" : ":" + resourcePath);
+//    return TeamCvsHandler.SCM_CVS_PREFIX + method.getName() //
+//        + ":" + userName + ":@" + host + ":" + (port == 0 ? "" : port) //
+//        + root + (resourcePath.length()==0 ? "" : ":" + resourcePath);
+    
+    return TeamCvsHandler.SCM_CVS_PREFIX + location + (resourcePath.length() == 0 ? "" : ":" + resourcePath);
   }
 
   

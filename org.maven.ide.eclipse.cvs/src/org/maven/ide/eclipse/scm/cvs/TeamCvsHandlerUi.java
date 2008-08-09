@@ -62,7 +62,7 @@ public class TeamCvsHandlerUi extends ScmHandlerUi {
     int n2 = url.lastIndexOf('|');
     int n = Math.max(n1, n2); // module name
     
-    String location = ":" + url.substring(TeamCvsHandler.SCM_CVS_PREFIX.length(), n);
+    String location = url.substring(TeamCvsHandler.SCM_CVS_PREFIX.length(), n);
     final String moduleName = url.substring(n + 1);
     
     ICVSRepositoryLocation repository;
