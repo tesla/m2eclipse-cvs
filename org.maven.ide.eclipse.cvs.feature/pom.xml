@@ -38,11 +38,4 @@
     </plugins>
   </build>
   
-  <dependencies>
-    <dependency>
-      <groupId>org.maven.ide.eclipse</groupId>
-      <artifactId>org.maven.ide.eclipse.cvs</artifactId>
-    </dependency>
-  </dependencies>
-  
 </project>
