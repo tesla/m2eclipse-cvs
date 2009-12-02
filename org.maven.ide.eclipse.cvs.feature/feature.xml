@@ -33,7 +33,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <import plugin="org.eclipse.team.cvs.core"/>
       <import plugin="org.eclipse.team.cvs.ui"/>
       <import plugin="org.maven.ide.eclipse" version="0.9.5" match="greaterOrEqual"/>
-      <import plugin="org.maven.ide.components.maven_embedder"/>
+      <import plugin="org.maven.ide.eclipse.maven_embedder"/>
    </requires>
 
    <plugin
