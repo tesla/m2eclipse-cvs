@@ -2,7 +2,7 @@
 <feature
       id="org.maven.ide.eclipse.cvs.feature"
       label="Maven SCM handler for Team/CVS (Optional)"
-      version="0.10.1.qualifier"
+      version="0.10.1.20100506-1407"
       provider-name="Sonatype, Inc."
       plugin="org.maven.ide.eclipse">
 
