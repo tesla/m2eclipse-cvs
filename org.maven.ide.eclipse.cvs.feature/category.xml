@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.maven.ide.eclipse.cvs.feature_0.0.0.qualifier.jar" id="org.maven.ide.eclipse.cvs.feature" version="0.0.0">
+      <category name="m2eclipse-cvs"/>
+   </feature>
+   <category-def name="m2eclipse-cvs" label="Maven Integration for Eclipse CVS Team Provider"/>
+</site>
+
