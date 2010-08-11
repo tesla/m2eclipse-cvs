@@ -10,28 +10,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.maven.ide.eclipse</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.10.2-SNAPSHOT</version>
-    <relativePath>../org.maven.ide.eclipse.parent</relativePath>
+    <groupId>org.maven.ide.eclipse.cvs</groupId>
+    <artifactId>m2eclipse-cvs</artifactId>
+    <version>0.10.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.maven.ide.eclipse.cvs</artifactId>
   <packaging>eclipse-plugin</packaging>
 
   <name>Maven SCM handler for Team/CVS</name>
-
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-
-    <resources>
-      <resource>
-        <directory>${basedir}/src</directory>
-        <includes>
-          <include>**/*.properties</include>
-        </includes>
-      </resource>
-    </resources>
-  </build>
-
 </project>
