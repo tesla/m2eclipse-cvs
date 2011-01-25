@@ -17,36 +17,24 @@
   </parent>
 
   <groupId>org.maven.ide.eclipse.cvs</groupId>
-  <artifactId>m2eclipse-cvs</artifactId>
+  <artifactId>org.maven.ide.eclipse.cvs.parent</artifactId>
   <version>0.10.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <name>Maven SCM Handler for CVS Parent</name>
+
   <properties>
-    <tycho-version>0.9.0</tycho-version>
-
-    <m2eclipse-core.version>0.11.0/N/0.11.0.201007201441</m2eclipse-core.version>
-
-    <site-compressed>http://repository.sonatype.org/service/local/repositories/forge-sites/content-compressed/</site-compressed>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <tycho-version>0.10.0</tycho-version>
+    <target.platform>m2e-cvs-e36</target.platform>
+    <m2e.site-compressed>http://repository.sonatype.org/service/local/repositories/forge-sites/content-compressed/</m2e.site-compressed>
   </properties>
 
   <modules>
+    <module>org.maven.ide.eclipse.cvs.target-platform</module>
     <module>org.maven.ide.eclipse.cvs</module>
     <module>org.maven.ide.eclipse.cvs.feature</module>
   </modules>
-
-  <repositories>
-    <repository>
-      <id>galileo</id>
-      <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/galileo</url>
-    </repository>
-
-    <repository>
-      <id>m2e</id>
-      <layout>p2</layout>
-      <url>http://repository.sonatype.org/content/sites/forge-sites/m2e/${m2eclipse-core.version}</url>
-    </repository>
-  </repositories>
 
   <build>
     <plugins>
@@ -63,6 +51,14 @@
         <version>${tycho-version}</version>
         <configuration>
           <resolver>p2</resolver>
+          <target>
+            <artifact>
+              <groupId>org.maven.ide.eclipse.cvs</groupId>
+              <artifactId>org.maven.ide.eclipse.cvs.target-platform</artifactId>
+              <version>${project.version}</version>
+              <classifier>${target.platform}</classifier>
+            </artifact>
+          </target>
           <ignoreTychoRepositories>true</ignoreTychoRepositories>
         </configuration>
       </plugin>
@@ -80,9 +76,7 @@
               <include>**/*Test.java</include>
             </includes>
             <argLine>${tycho.test.jvmArgs}</argLine>
-            <!-- kill test JVM it tests take more than 10 minutes (600 seconds) 
-              to finish -->
-            <forkedProcessTimeoutInSeconds>7200</forkedProcessTimeoutInSeconds>
+            <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
           </configuration>
         </plugin>
       </plugins>

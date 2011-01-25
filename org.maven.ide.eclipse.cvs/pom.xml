@@ -11,12 +11,12 @@
 
   <parent>
     <groupId>org.maven.ide.eclipse.cvs</groupId>
-    <artifactId>m2eclipse-cvs</artifactId>
+    <artifactId>org.maven.ide.eclipse.cvs.parent</artifactId>
     <version>0.10.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.maven.ide.eclipse.cvs</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>Maven SCM handler for Team/CVS</name>
+  <name>Maven SCM Handler for CVS Plug-in</name>
 </project>
