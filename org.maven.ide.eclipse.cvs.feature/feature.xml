@@ -2,9 +2,9 @@
 <feature
       id="org.maven.ide.eclipse.cvs.feature"
       label="Maven SCM handler for Team/CVS (Optional)"
-      version="0.10.3.qualifier"
+      version="0.13.0.qualifier"
       provider-name="Sonatype, Inc."
-      plugin="org.maven.ide.eclipse">
+      plugin="org.eclipse.m2e.core">
 
    <description url="http://m2eclipse.sonatype.org/">
       Checkout Maven projects from CVS
@@ -32,8 +32,8 @@ http://www.eclipse.org/legal/epl-v10.html
       <import plugin="org.eclipse.team.core"/>
       <import plugin="org.eclipse.team.cvs.core"/>
       <import plugin="org.eclipse.team.cvs.ui"/>
-      <import plugin="org.maven.ide.eclipse" version="0.10.0" match="compatible"/>
-      <import plugin="org.maven.ide.eclipse.maven_embedder" version="0.10.0" match="compatible"/>
+      <import plugin="org.eclipse.m2e.core" version="0.13.0" match="compatible"/>
+      <import plugin="org.eclipse.m2e.maven.runtime" version="0.13.0" match="compatible"/>
    </requires>
 
    <plugin

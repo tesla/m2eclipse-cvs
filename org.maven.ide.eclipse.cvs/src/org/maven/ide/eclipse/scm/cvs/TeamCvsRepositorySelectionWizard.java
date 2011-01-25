@@ -10,6 +10,7 @@ package org.maven.ide.eclipse.scm.cvs;
 
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.m2e.core.core.MavenLogger;
 import org.eclipse.team.core.TeamException;
 import org.eclipse.team.internal.ccvs.core.CVSException;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
@@ -20,8 +21,6 @@ import org.eclipse.team.internal.ccvs.ui.wizards.ICVSWizard;
 import org.eclipse.team.internal.ccvs.ui.wizards.ModuleSelectionPage;
 import org.eclipse.team.internal.ccvs.ui.wizards.NewLocationWizard;
 import org.eclipse.team.internal.ccvs.ui.wizards.RepositorySelectionPage;
-
-import org.maven.ide.eclipse.core.MavenLogger;
 
 /**
  * @author Eugene Kuleshov

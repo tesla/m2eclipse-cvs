@@ -13,7 +13,7 @@
   <parent>
     <groupId>org.maven.ide.eclipse.cvs</groupId>
     <artifactId>org.maven.ide.eclipse.cvs.parent</artifactId>
-    <version>0.10.3-SNAPSHOT</version>
+    <version>0.13.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.maven.ide.eclipse.cvs.target-platform</artifactId>

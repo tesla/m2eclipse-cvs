@@ -10,6 +10,9 @@ package org.maven.ide.eclipse.scm.cvs;
 
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.m2e.core.core.MavenLogger;
+import org.eclipse.m2e.core.scm.ScmHandlerUi;
+import org.eclipse.m2e.core.scm.ScmUrl;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.internal.ccvs.core.CVSException;
 import org.eclipse.team.internal.ccvs.core.CVSTag;
@@ -18,10 +21,6 @@ import org.eclipse.team.internal.ccvs.core.ICVSRepositoryLocation;
 import org.eclipse.team.internal.ccvs.core.connection.CVSRepositoryLocation;
 import org.eclipse.team.internal.ccvs.ui.tags.TagSelectionDialog;
 import org.eclipse.team.internal.ccvs.ui.tags.TagSource;
-
-import org.maven.ide.eclipse.core.MavenLogger;
-import org.maven.ide.eclipse.scm.ScmHandlerUi;
-import org.maven.ide.eclipse.scm.ScmUrl;
 
 /**
  * An SCM handler UI for Team/CVS provider

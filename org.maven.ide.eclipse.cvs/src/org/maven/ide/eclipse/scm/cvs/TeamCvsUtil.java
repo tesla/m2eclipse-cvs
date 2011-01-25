@@ -8,17 +8,16 @@
 
 package org.maven.ide.eclipse.scm.cvs;
 
+import org.eclipse.m2e.core.MavenPlugin;
+import org.eclipse.m2e.core.core.MavenLogger;
+import org.eclipse.m2e.core.scm.ScmTag;
+import org.eclipse.m2e.core.scm.ScmUrl;
 import org.eclipse.team.internal.ccvs.core.CVSException;
 import org.eclipse.team.internal.ccvs.core.CVSTag;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteResource;
 import org.eclipse.team.internal.ccvs.core.ICVSRepositoryLocation;
 import org.eclipse.team.internal.ccvs.core.syncinfo.FolderSyncInfo;
-
-import org.maven.ide.eclipse.MavenPlugin;
-import org.maven.ide.eclipse.core.MavenLogger;
-import org.maven.ide.eclipse.scm.ScmTag;
-import org.maven.ide.eclipse.scm.ScmUrl;
 
 /**
  * @author Eugene Kuleshov

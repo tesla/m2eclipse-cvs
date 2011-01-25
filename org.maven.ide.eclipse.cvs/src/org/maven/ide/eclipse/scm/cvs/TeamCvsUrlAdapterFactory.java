@@ -9,9 +9,8 @@
 package org.maven.ide.eclipse.scm.cvs;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.m2e.core.scm.ScmUrl;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
-
-import org.maven.ide.eclipse.scm.ScmUrl;
 
 /**
  * @author Eugene Kuleshov

@@ -16,8 +16,8 @@
 </location>
 
 <location includeAllPlatforms="false" includeMode="planner" type="InstallableUnit">
-<unit id="org.maven.ide.eclipse" version="0.12.0.20101115-1102"/>
-<repository location="http://m2eclipse.sonatype.org/sites/m2e"/>
+<unit id="org.eclipse.m2e.core" version="0.13.0.201101251319"/>
+<repository location="http://repository.sonatype.org/content/sites/forge-sites/m2e/0.13.0/N/0.13.0.201101251319"/>
 </location>
 
 </locations>
