@@ -18,15 +18,13 @@ import org.maven.ide.eclipse.scm.ScmUrl;
  */
 public class TeamCvsUrlAdapterFactory implements IAdapterFactory {
 
-  @SuppressWarnings("unchecked")
-  private static final Class[] ADAPTER_TYPES = new Class[] { ScmUrl.class };
+  private static final Class<?>[] ADAPTER_TYPES = new Class[] { ScmUrl.class };
   
-  @SuppressWarnings("unchecked")
-  public Class[] getAdapterList() {
+  public Class<?>[] getAdapterList() {
     return ADAPTER_TYPES;
   }
   
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings("rawtypes")
   public Object getAdapter(Object adaptable, Class adapterType) {
     if(ScmUrl.class.equals(adapterType)) {
       if(adaptable instanceof ICVSRemoteFolder) {
