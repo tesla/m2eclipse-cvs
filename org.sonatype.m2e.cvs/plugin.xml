@@ -9,18 +9,18 @@
 <?eclipse version="3.2"?>
 <plugin>
 
-  <extension point="org.eclipse.m2e.core.scmHandlers">
+  <extension point="org.eclipse.m2e.scm.scmHandlers">
      <handler type="cvs" priority="10" class="org.sonatype.m2e.cvs.internal.TeamCvsHandler"/>
   </extension>
   
-  <extension point="org.eclipse.m2e.core.scmHandlersUi">
+  <extension point="org.eclipse.m2e.scm.scmHandlersUi">
      <handlerUi type="cvs" class="org.sonatype.m2e.cvs.internal.TeamCvsHandlerUi"/>
   </extension>
 
   <extension point="org.eclipse.core.runtime.adapters">
      <factory adaptableType="org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder"
              class="org.sonatype.m2e.cvs.internal.TeamCvsUrlAdapterFactory">
-        <adapter type="org.eclipse.m2e.core.scm.ScmUrl"/>
+        <adapter type="org.eclipse.m2e.scm.ScmUrl"/>
      </factory>
   </extension>
 

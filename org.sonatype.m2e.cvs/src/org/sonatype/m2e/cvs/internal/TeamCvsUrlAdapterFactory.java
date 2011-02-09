@@ -9,7 +9,7 @@
 package org.sonatype.m2e.cvs.internal;
 
 import org.eclipse.core.runtime.IAdapterFactory;
-import org.eclipse.m2e.core.scm.ScmUrl;
+import org.eclipse.m2e.scm.ScmUrl;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
 
 /**
