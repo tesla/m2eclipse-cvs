@@ -8,9 +8,10 @@
 
 package org.sonatype.m2e.cvs.internal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.m2e.core.core.MavenLogger;
 import org.eclipse.m2e.scm.ScmUrl;
 import org.eclipse.m2e.scm.spi.ScmHandlerUi;
 import org.eclipse.swt.widgets.Shell;
@@ -28,7 +29,8 @@ import org.eclipse.team.internal.ccvs.ui.tags.TagSource;
  * @author Eugene Kuleshov
  */
 public class TeamCvsHandlerUi extends ScmHandlerUi {
-
+  private static Logger log = LoggerFactory.getLogger(TeamCvsHandlerUi.class);
+  
   // capabilities
   
   public boolean canSelectUrl() {
@@ -68,7 +70,7 @@ public class TeamCvsHandlerUi extends ScmHandlerUi {
     try {
       repository = CVSRepositoryLocation.fromString(location, false);
     } catch(CVSException ex) {
-      MavenLogger.log(ex);
+      log.error("Exception reading location", ex);
       return null;
     }
     

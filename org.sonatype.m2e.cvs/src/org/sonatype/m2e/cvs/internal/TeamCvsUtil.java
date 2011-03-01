@@ -8,8 +8,9 @@
 
 package org.sonatype.m2e.cvs.internal;
 
-import org.eclipse.m2e.core.MavenPlugin;
-import org.eclipse.m2e.core.core.MavenLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.eclipse.m2e.scm.ScmTag;
 import org.eclipse.m2e.scm.ScmUrl;
 import org.eclipse.team.internal.ccvs.core.CVSException;
@@ -23,7 +24,8 @@ import org.eclipse.team.internal.ccvs.core.syncinfo.FolderSyncInfo;
  * @author Eugene Kuleshov
  */
 public class TeamCvsUtil {
-
+  private static Logger log =  LoggerFactory.getLogger(TeamCvsUtil.class);
+  
   static ScmUrl getScmUrl(ICVSRemoteFolder remoteFolder) {
     String scmUrl = getUrl(remoteFolder);
     
@@ -43,9 +45,7 @@ public class TeamCvsUtil {
         }
       }
     } catch(CVSException ex) {
-      String msg = "Can't retrieve CVS tag";
-      MavenLogger.log(msg, ex);
-      MavenPlugin.getDefault().getConsole().logError(msg + "; " + ex.getMessage());
+      log.error("Can't retrieve CVS tag", ex);
     }
     
     return new ScmUrl(scmUrl, scmParentUrl, scmTag);

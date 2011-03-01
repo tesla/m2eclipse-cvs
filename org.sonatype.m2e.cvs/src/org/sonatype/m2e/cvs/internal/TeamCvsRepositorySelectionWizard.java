@@ -8,9 +8,11 @@
 
 package org.sonatype.m2e.cvs.internal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.m2e.core.core.MavenLogger;
 import org.eclipse.team.core.TeamException;
 import org.eclipse.team.internal.ccvs.core.CVSException;
 import org.eclipse.team.internal.ccvs.core.ICVSRemoteFolder;
@@ -27,6 +29,8 @@ import org.eclipse.team.internal.ccvs.ui.wizards.RepositorySelectionPage;
  */
 public class TeamCvsRepositorySelectionWizard extends Wizard implements ICVSWizard {
 
+  private static final Logger log = LoggerFactory.getLogger(TeamCvsRepositorySelectionWizard.class);
+  
   private RepositorySelectionPage locationPage;
   private ModuleSelectionPage modulePage;
   ConfigurationWizardMainPage createLocationPage;
@@ -103,7 +107,7 @@ public class TeamCvsRepositorySelectionWizard extends Wizard implements ICVSWiza
           try {
             modulePage.setLocation(getLocation());
           } catch (TeamException ex) {
-            MavenLogger.log(ex);
+            log.error("Exception setting location", ex);
           }
         }
         return modulePage;
@@ -118,7 +122,7 @@ public class TeamCvsRepositorySelectionWizard extends Wizard implements ICVSWiza
             modulePage.setLocation(l);
           }
         } catch (TeamException ex) {
-          MavenLogger.log(ex);
+          log.error("Exception setting location", ex);
         }
       }
       return modulePage;
