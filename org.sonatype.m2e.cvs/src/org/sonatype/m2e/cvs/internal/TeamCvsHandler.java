@@ -31,6 +31,8 @@ import org.eclipse.team.internal.ccvs.core.client.Session;
 import org.eclipse.team.internal.ccvs.core.client.Update;
 import org.eclipse.team.internal.ccvs.core.connection.CVSRepositoryLocation;
 import org.eclipse.team.internal.ccvs.core.resources.CVSWorkspaceRoot;
+import org.eclipse.team.internal.ccvs.ui.CVSUIPlugin;
+import org.eclipse.team.internal.ccvs.ui.repo.RepositoryManager;
 
 
 /**
@@ -72,7 +74,21 @@ public class TeamCvsHandler extends ScmHandler {
     String location = folderUrl.substring(SCM_CVS_PREFIX.length(), n);
     final String moduleName = folderUrl.substring(n + 1);
     
+    // do we have to add an username? 
+    String pattern = ":pserver:@";
+    if(location.contains(pattern)) {
+      String myUserName = System.getProperty("user.name");
+      location = location.replace(pattern, ":pserver:" + myUserName + "@");
+    }
+
     ICVSRepositoryLocation repository = CVSRepositoryLocation.fromString(location, false);
+
+    // already managed by RepositoryManager?
+    RepositoryManager repositoryManager = CVSUIPlugin.getPlugin().getRepositoryManager();
+    ICVSRepositoryLocation lookedUpRepository = repositoryManager.getRepositoryRootFor(repository).getRoot();
+    if(lookedUpRepository != null) {
+      repository = lookedUpRepository;
+    }
     
     String projectName = dest.getName();
     
