@@ -26,20 +26,7 @@
     <repositoryPathId>m2eclipse-cvs</repositoryPathId>
     <p2MetadataName>Maven SCM Handler for CVS</p2MetadataName>
   </properties>  
-  
-  <repositories>
-    <repository>
-      <id>eclipse-commons</id>
-      <url>http://repository.sonatype.org/content/sites/forge-sites/eclipse-commons/1.1.7/N/1.1.7.201105091728</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>                                                                                                                       
-      <id>m2e-tests</id>                                                                                                         
-      <url>https://repository.sonatype.org/content/sites/forge-sites/m2e/1.1.0/N/1.1.0.20120622-0806/</url>                   
-      <layout>p2</layout>                                                                                                              
-    </repository>      
-  </repositories>  
-    
+      
   <modules>
     <module>org.sonatype.m2e.cvs</module>
     <module>org.sonatype.m2e.cvs.feature</module>
